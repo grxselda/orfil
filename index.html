@@ -17,24 +17,27 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--hv);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{
+  background-color: var(--bg);
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color:var(--text);font-family:var(--hv);font-weight:700;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
 
-/* AMBIENT BG */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse 65% 55% at 8% 15%,rgba(200,169,110,.052) 0%,transparent 55%),
-             radial-gradient(ellipse 50% 60% at 94% 82%,rgba(130,80,40,.038) 0%,transparent 50%),
-             radial-gradient(ellipse 35% 35% at 55% 45%,rgba(200,169,110,.016) 0%,transparent 60%)}
-body::before{content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.022;pointer-events:none;z-index:9998}
+
 
 /* ═══ DYNAMIC ISLAND HEADER ═══ */
 #header{
   position:fixed;top:14px;left:50%;transform:translateX(-50%);
   width:calc(100% - 80px);max-width:1160px;
   height:58px;
-  background:rgba(10,10,10,.78);
-  backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);
+  background-image:url('Menu.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   border:1px solid rgba(255,255,255,.1);
   border-radius:40px;
   display:flex;align-items:center;padding:0 22px;
@@ -45,32 +48,31 @@ body::before{content:'';position:fixed;inset:0;
 .header-logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
 /* IMAGE FILE: assets/logo-header.png — replace with your logo, recommended 36x36px */
 .header-logo-img{
-  width:34px;height:34px;border-radius:50%;border:1.5px solid var(--accent);
-  background:radial-gradient(circle at 38% 35%,rgba(200,169,110,.3),rgba(200,169,110,.05));
+  width:40px;height:40px;border-radius:8px;border:none;
+  background:transparent;
   display:flex;align-items:center;justify-content:center;
-  font-size:10px;font-weight:800;color:var(--accent);letter-spacing:.5px;
   overflow:hidden;flex-shrink:0;
 }
-.header-logo-img img{width:100%;height:100%;object-fit:cover;display:none}
+.header-logo-img img{width:100%;height:100%;object-fit:contain;display:none}
 .header-logo-img img.loaded{display:block}
-.header-logo-fallback{font-size:10px;font-weight:800;color:var(--accent)}
+
 .header-logo-text{font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.1px;line-height:1.2}
-.header-logo-sub{font-size:7.5px;font-weight:400;color:var(--dim);letter-spacing:2.5px;text-transform:uppercase;display:block}
-.header-timer{
-  font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:1.5px;
-  border:1px solid var(--border);padding:4px 10px;border-radius:20px;
-  min-width:86px;text-align:center;flex-shrink:0;
-  background:rgba(255,255,255,.03);
+.header-logo-sub{font-size:7.5px;font-weight:700;color:var(--dim);letter-spacing:2.5px;text-transform:uppercase;display:block}
+.digital-clock{
+  font-family:'Courier New',monospace;font-size:14px;font-weight:700;
+  color:#00ff00;letter-spacing:1px;
+  background:rgba(0,0,0,.3);border:1px solid #00ff00;border-radius:4px;
+  padding:4px 8px;flex-shrink:0;min-width:80px;text-align:center;
 }
 .hspc{flex:1}
 nav{display:flex;align-items:center;gap:2px}
-.nav-link{font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;
+.nav-link{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
   color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:22px;
   transition:color .2s,background .2s;cursor:pointer;white-space:nowrap}
 .nav-link:hover{color:var(--text);background:rgba(255,255,255,.06)}
 .nav-dropdown{position:relative}
 .nav-dropdown-btn{
-  font-family:var(--hv);font-size:10px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;
+  font-family:var(--hv);font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
   color:var(--muted);background:rgba(255,255,255,.05);
   border:1px solid var(--border);padding:6px 12px;border-radius:22px;
   cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap
@@ -87,7 +89,7 @@ nav{display:flex;align-items:center;gap:2px}
   box-shadow:0 16px 48px rgba(0,0,0,.5)
 }
 .nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.nav-dropdown-item{display:block;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+.nav-dropdown-item{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--muted);padding:9px 13px;border-radius:8px;cursor:pointer;transition:all .15s;text-decoration:none}
 .nav-dropdown-item:hover{color:var(--accent);background:var(--adim)}
 .nav-dropdown-item.active-sub{color:var(--accent)}
@@ -96,7 +98,7 @@ nav{display:flex;align-items:center;gap:2px}
 .page{display:none;position:relative;z-index:1}.page.active{display:block}
 
 /* ═══ HERO ═══ */
-#home-hero{min-height:100vh;padding-top:86px;display:flex;align-items:center;position:relative;overflow:hidden}
+#home-hero{padding:110px 48px 88px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .hero-glow{position:absolute;pointer-events:none;border-radius:50%}
 .hg1{width:520px;height:520px;top:5%;left:-100px;background:radial-gradient(circle,rgba(200,169,110,.065) 0%,transparent 65%)}
 .hg2{width:380px;height:380px;bottom:5%;right:-80px;background:radial-gradient(circle,rgba(140,80,40,.042) 0%,transparent 65%)}
@@ -106,26 +108,26 @@ nav{display:flex;align-items:center;gap:2px}
 .hero-logo-circle::before{content:'';position:absolute;inset:13px;border:1px dashed rgba(200,169,110,.07);border-radius:50%}
 @keyframes rslow{to{transform:rotate(360deg)}}
 .hero-logo-inner{width:70%;aspect-ratio:1;background:radial-gradient(circle at 38% 32%,rgba(200,169,110,.11),rgba(200,169,110,.025));border:1px solid rgba(200,169,110,.22);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;animation:rslow 38s linear reverse infinite}
-.hero-logo-OF{font-size:clamp(50px,8vw,80px);font-weight:800;color:var(--accent);line-height:1;letter-spacing:3px}
+.hero-logo-OF{font-size:clamp(50px,8vw,80px);font-weight:700;color:var(--accent);line-height:1;letter-spacing:3px}
 .hero-logo-dots{display:flex;gap:5px}
 .hero-logo-dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
 .hero-logo-dot:nth-child(2){opacity:.4}.hero-logo-dot:nth-child(3){opacity:.18}
 .hero-content{}
-.hero-eyebrow{font-size:9px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:11px}
+.hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:11px}
 .hero-eyebrow::before{content:'';display:block;width:26px;height:1px;background:var(--accent);opacity:.6}
 .hero-title{font-size:clamp(36px,5vw,62px);font-weight:700;line-height:1.0;letter-spacing:-1.5px;margin-bottom:6px}
-.hero-title-italic{font-weight:300;font-style:italic;color:var(--accent2)}
-.hero-title-ui{font-size:clamp(10px,1.4vw,13px);font-weight:400;letter-spacing:5px;text-transform:uppercase;color:var(--muted);display:block;margin-top:7px}
+.hero-title-italic{font-weight:700;font-style:italic;color:var(--accent2)}
+.hero-title-ui{font-size:clamp(10px,1.4vw,13px);font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--muted);display:block;margin-top:7px}
 .hero-div{width:42px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin:20px 0}
 /* GLASS CARD */
 .glass-card{background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid var(--border);border-radius:12px;position:relative;overflow:hidden}
 .glass-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(200,169,110,.45),transparent 60%)}
 .glass-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,rgba(200,169,110,.28),transparent 70%)}
 .hero-card{padding:20px 24px;margin-bottom:24px}
-.hero-card p{font-size:12.5px;font-weight:300;line-height:1.82;color:rgba(242,237,229,.7)}
-.hero-card strong{font-weight:600;color:var(--accent)}
+.hero-card p{font-size:12.5px;font-weight:700;line-height:1.82;color:rgba(242,237,229,.7)}
+.hero-card strong{font-weight:700;color:var(--accent)}
 .hero-tags{display:flex;gap:9px;flex-wrap:wrap}
-.hero-tag{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--aborder);padding:7px 15px;border-radius:3px;cursor:pointer;transition:all .2s;background:transparent;font-family:var(--hv)}
+.hero-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--aborder);padding:7px 15px;border-radius:3px;cursor:pointer;transition:all .2s;background:transparent;font-family:var(--hv)}
 .hero-tag:hover{background:var(--adim);border-color:var(--accent);color:var(--accent2)}
 .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;opacity:.22}
 .scroll-hint span{font-size:8px;letter-spacing:3px;text-transform:uppercase}
@@ -136,22 +138,22 @@ nav{display:flex;align-items:center;gap:2px}
 .section{padding:88px 48px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .sec-full{padding:88px 0;position:relative;z-index:1}
 .sec-full .inner{max-width:1200px;margin:0 auto;padding:0 48px}
-.eyebrow{font-size:8.5px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:11px;display:flex;align-items:center;gap:9px}
+.eyebrow{font-size:8.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:11px;display:flex;align-items:center;gap:9px}
 .eyebrow::after{content:'';display:block;height:1px;flex:1;background:var(--border);max-width:50px}
 .sec-title{font-size:clamp(32px,4.5vw,52px);font-weight:700;line-height:1.08;letter-spacing:-1px;margin-bottom:44px}
-.sec-title-i{font-weight:300;font-style:italic;color:var(--accent2)}
+.sec-title-i{font-weight:700;font-style:italic;color:var(--accent2)}
 
 /* ═══ OUR WORKS — ZIGZAG ═══ */
 #sec-works{background:linear-gradient(180deg,transparent,rgba(200,169,110,.016) 50%,transparent)}
 .works-head{text-align:center;margin-bottom:52px}
-.works-sub{font-size:11.5px;font-weight:300;color:var(--muted);margin-top:9px}
+.works-sub{font-size:11.5px;font-weight:700;color:var(--muted);margin-top:9px}
 .works-zigzag{display:flex;justify-content:center;align-items:center;padding:44px 0 52px;position:relative;min-height:400px}
-.film-card{width:158px;flex-shrink:0;cursor:pointer;position:relative;transition:transform .38s cubic-bezier(.34,1.4,.64,1)}
-.film-card:nth-child(odd){transform:translateY(-30px);z-index:3}
-.film-card:nth-child(even){transform:translateY(30px);z-index:4}
-.film-card:not(:first-child){margin-left:-34px}
+.film-card{width:220px;flex-shrink:0;cursor:pointer;position:relative;transition:transform .38s cubic-bezier(.34,1.4,.64,1)}
+.film-card:nth-child(odd){transform:translateY(-42px);z-index:3}
+.film-card:nth-child(even){transform:translateY(42px);z-index:4}
+.film-card:not(:first-child){margin-left:-48px}
 .film-card:nth-child(3){z-index:6}.film-card:nth-child(4){z-index:5}
-.film-card:hover{transform:translateY(-54px) scale(1.07) !important;z-index:20 !important}
+.film-card:hover{transform:translateY(-75px) scale(1.07) !important;z-index:20 !important}
 .film-card-poster{width:100%;aspect-ratio:2/3;border-radius:10px;overflow:hidden;
   border:1px solid rgba(255,255,255,.12);
   box-shadow:0 18px 52px rgba(0,0,0,.78),0 0 0 .5px rgba(255,255,255,.04),inset 0 0 0 1px rgba(255,255,255,.04);
@@ -166,8 +168,8 @@ nav{display:flex;align-items:center;gap:2px}
 .film-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.06) 55%,transparent 100%)}
 .film-card-info{position:relative;z-index:1}
 .film-card-title{font-size:10.5px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:3px}
-.film-card-year{font-size:8px;font-weight:400;letter-spacing:1.5px;color:rgba(255,255,255,.5);text-transform:uppercase}
-.film-card-badge{position:absolute;top:9px;right:9px;font-size:7px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);background:rgba(0,0,0,.65);border:1px solid var(--aborder);padding:2px 6px;border-radius:2px;z-index:2}
+.film-card-year{font-size:8px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.5);text-transform:uppercase}
+.film-card-badge{position:absolute;top:9px;right:9px;font-size:7px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);background:rgba(0,0,0,.65);border:1px solid var(--aborder);padding:2px 6px;border-radius:2px;z-index:2}
 .p1{background:linear-gradient(155deg,#1f0d0d,#4a1f12 45%,#180908)}
 .p2{background:linear-gradient(155deg,#080d1c,#0d2248 45%,#04080f)}
 .p3{background:linear-gradient(155deg,#0e0900,#312400 45%,#180f00)}
@@ -176,58 +178,179 @@ nav{display:flex;align-items:center;gap:2px}
 .p6{background:linear-gradient(155deg,#080c14,#121e38 45%,#060810)}
 
 /* ═══ FILM DETAIL SUB-PAGE ═══ */
-#page-film{background:var(--bg)}
-.film-viewer{display:grid;grid-template-rows:auto 1fr;height:100vh;overflow:hidden}
-.film-viewer-header{
-  padding:22px 48px;display:flex;align-items:center;gap:20px;
-  border-bottom:1px solid var(--border);
-  background:rgba(8,8,8,.9);backdrop-filter:blur(20px);
-  margin-top:86px;/* below floating header */
-  position:sticky;top:86px;z-index:100;
+#page-film{
+  background-color: var(--bg);
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-.film-viewer-back{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:7px;background:none;border:none;font-family:var(--hv);transition:color .2s}
-.film-viewer-back:hover{color:var(--accent)}
-.film-viewer-title{font-size:13px;font-weight:600;color:var(--text)}
-.film-viewer-nav{margin-left:auto;display:flex;gap:8px}
-.film-nav-btn{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:var(--glass);border:1px solid var(--border);padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .2s;font-family:var(--hv)}
-.film-nav-btn:hover{color:var(--accent);border-color:var(--aborder)}
-.film-nav-btn:disabled{opacity:.3;cursor:default}
 
-.film-scroll-container{overflow-y:auto;height:calc(100vh - 86px - 65px)}
-.film-detail-wrap{max-width:1140px;margin:0 auto;padding:52px 48px 80px;display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:start}
 
-/* Poster container with glassmorphism */
-.film-poster-frame{
-  background:var(--glass);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);
-  border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;
-  box-shadow:0 28px 72px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06);
-  aspect-ratio:2/3;position:relative;
-}
-.film-poster-inner{width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
-.film-poster-placeholder{font-size:52px;font-weight:800;color:rgba(255,255,255,.06);letter-spacing:4px;transform:rotate(-38deg)}
 
-/* Info glass card */
-.film-info-card{
-  background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);
-  border:1px solid var(--border);border-radius:14px;overflow:hidden;
-  box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05)
-}
-.film-info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(200,169,110,.4),transparent 60%)}
-.film-info-header{padding:28px 28px 20px;border-bottom:1px solid var(--border)}
-.film-info-genre{font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--aborder);display:inline-block;padding:3px 9px;border-radius:2px;margin-bottom:14px}
-.film-info-title{font-size:clamp(24px,3vw,38px);font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:6px}
-.film-info-year{font-size:11px;font-weight:400;color:var(--muted);letter-spacing:2px}
-.film-info-body{padding:22px 28px}
-.film-info-synopsis{font-size:13px;font-weight:300;line-height:1.85;color:rgba(242,237,229,.65);margin-bottom:24px}
-.film-info-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px}
-.film-stat-label{font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
-.film-stat-value{font-size:14px;font-weight:300;font-style:italic;color:var(--text)}
-.film-info-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-action{font-size:9.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:9px 18px;border-radius:6px;cursor:pointer;transition:all .2s;font-family:var(--hv);display:flex;align-items:center;gap:7px}
-.btn-primary{background:var(--accent);color:#000;border:none}
+
+
+
+
+
 .btn-primary:hover{background:var(--accent2)}
 .btn-ghost{background:var(--glass);border:1px solid var(--border);color:var(--muted)}
 .btn-ghost:hover{border-color:var(--aborder);color:var(--accent);background:var(--adim)}
+
+/* ═══ NEW FILM DETAIL LAYOUT ═══ */
+.film-scroll-container{
+  overflow-y:auto;
+  height:100vh;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+}
+.film-section{
+  min-height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:88px 48px;
+}
+.film-detail-header{
+  min-height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:120px 48px;
+  gap:60px;
+}
+.film-detail-header-title{
+  max-width:500px;
+  height:auto;
+}
+.film-detail-cards{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  max-width:1200px;
+}
+.film-detail-card{
+  width:200px;
+  flex-shrink:0;
+  cursor:pointer;
+  position:relative;
+  transition:transform .38s cubic-bezier(.34,1.4,.64,1);
+  background:var(--glass);
+  backdrop-filter:blur(18px) saturate(1.3);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.film-detail-card:nth-child(odd){transform:translateY(-30px);z-index:3}
+.film-detail-card:nth-child(even){transform:translateY(30px);z-index:4}
+.film-detail-card:not(:first-child){margin-left:-35px}
+.film-detail-card:nth-child(3){z-index:6}
+.film-detail-card:nth-child(4){z-index:5}
+.film-detail-card:hover{transform:translateY(-40px) scale(1.07) !important;z-index:20 !important}
+.film-detail-card img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  display:block;
+  border-radius:8px;
+}
+.film-detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  max-width:1200px;
+  width:100%;
+  align-items:center;
+}
+.film-poster-container{
+  display:flex;
+  justify-content:center;
+}
+.film-poster-frame{
+  width:100%;
+  max-width:300px;
+  aspect-ratio:2/3;
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--glass);
+  backdrop-filter:blur(16px) saturate(1.2);
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 28px 72px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.film-poster-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.film-info-container{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+.film-title{
+  font-size:clamp(32px,4vw,48px);
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-1px;
+}
+.film-description-card{
+  background:var(--glass);
+  backdrop-filter:blur(18px) saturate(1.3);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:30px;
+  box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05);
+}
+.film-description-text{
+  font-size:15px;
+  font-weight:700;
+  line-height:1.8;
+  color:rgba(242,237,229,.8);
+}
+.film-nav-hint{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--dim);
+  background:rgba(0,0,0,.5);
+  padding:8px 16px;
+  border-radius:20px;
+  z-index:100;
+}
+.film-back-btn{
+  position:fixed;
+  top:100px;
+  left:48px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--dim);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(0,0,0,.3);
+  border:1px solid var(--border);
+  padding:8px 16px;
+  border-radius:20px;
+  z-index:100;
+  transition:all .2s;
+}
+.film-back-btn:hover{
+  color:var(--accent);
+  border-color:var(--aborder);
+}
 
 /* TEAM POPUP */
 .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .25s}
@@ -243,12 +366,12 @@ nav{display:flex;align-items:center;gap:2px}
 .popup-title{font-size:15px;font-weight:700}
 .popup-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;transition:color .2s}
 .popup-close:hover{color:var(--text)}
-.popup-film-name{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.popup-film-name{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 .popup-members{display:flex;flex-direction:column;gap:10px;max-height:320px;overflow-y:auto}
 .popup-member{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--glass);border:1px solid var(--border);border-radius:8px}
 .popup-member-av{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.28),rgba(200,169,110,.05));border:1px solid var(--aborder);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--accent);flex-shrink:0}
-.popup-member-name{font-size:12px;font-weight:500}
-.popup-member-role{font-size:10px;font-weight:300;color:var(--muted)}
+.popup-member-name{font-size:12px;font-weight:700}
+.popup-member-role{font-size:10px;font-weight:700;color:var(--muted)}
 
 /* ═══ ACHIEVEMENTS LEADERBOARD ═══ */
 #sec-achievements{border-top:1px solid var(--border)}
@@ -265,12 +388,12 @@ nav{display:flex;align-items:center;gap:2px}
 .lb-rank-2{border-color:rgba(180,180,180,.2)}
 .lb-rank-3{border-color:rgba(180,120,60,.2)}
 .lb-crown{font-size:22px;display:block;margin-bottom:8px}
-.lb-rank-num{font-size:32px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px}
+.lb-rank-num{font-size:32px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px}
 .lb-rank-2 .lb-rank-num{color:rgba(200,200,200,.7)}
 .lb-rank-3 .lb-rank-num{color:rgba(180,120,60,.8)}
-.lb-name{font-size:12px;font-weight:600;margin-bottom:4px}
-.lb-title{font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.lb-score{font-size:10px;font-weight:400;color:var(--muted)}
+.lb-name{font-size:12px;font-weight:700;margin-bottom:4px}
+.lb-title{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.lb-score{font-size:10px;font-weight:700;color:var(--muted)}
 .lb-row{
   display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;
   padding:12px 16px;
@@ -279,13 +402,13 @@ nav{display:flex;align-items:center;gap:2px}
 }
 .lb-row:hover{background:var(--glass2);border-color:rgba(255,255,255,.12)}
 .lb-row-rank{font-size:12px;font-weight:700;color:var(--dim);text-align:center}
-.lb-row-name{font-size:12.5px;font-weight:400}
-.lb-row-score{font-size:11px;font-weight:500;color:var(--accent)}
+.lb-row-name{font-size:12.5px;font-weight:700}
+.lb-row-score{font-size:11px;font-weight:700;color:var(--accent)}
 
 /* ═══ MEMBERS ═══ */
 #sec-members{border-top:1px solid var(--border)}
-.members-desc{font-size:13px;font-weight:300;color:var(--muted);margin-top:-28px;margin-bottom:40px;line-height:1.75}
-.members-desc a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(200,169,110,.3);font-weight:500;transition:all .2s}
+.members-desc{font-size:13px;font-weight:700;color:var(--muted);margin-top:-28px;margin-bottom:40px;line-height:1.75;text-align:center}
+.members-desc a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(200,169,110,.3);font-weight:700;transition:all .2s}
 .members-desc a:hover{color:var(--accent2)}
 .members-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .member-year-card{
@@ -297,12 +420,12 @@ nav{display:flex;align-items:center;gap:2px}
 .member-year-card:hover{background:var(--glass2);border-color:rgba(200,169,110,.18);transform:translateY(-5px);box-shadow:0 16px 44px rgba(0,0,0,.5)}
 .member-year-card:hover::before{opacity:1}
 .myh{padding:16px 18px 12px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:baseline;gap:9px}
-.myn{font-size:28px;font-weight:800;color:var(--accent);line-height:1}
-.myl{font-size:8px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
+.myn{font-size:28px;font-weight:700;color:var(--accent);line-height:1}
+.myl{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
 .myb{padding:13px 18px 17px}
-.member-name-list{font-size:11px;font-weight:300;color:rgba(242,237,229,.7);line-height:2.1}
-.member-count{font-size:8px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.member-tba{font-size:11px;font-weight:300;font-style:italic;color:var(--dim);padding:18px 18px}
+.member-name-list{font-size:11px;font-weight:700;color:rgba(242,237,229,.7);line-height:2.1}
+.member-count{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.member-tba{font-size:11px;font-weight:700;font-style:italic;color:var(--dim);padding:18px 18px}
 
 /* ═══ FILM FUNS SECTION ═══ */
 #sec-filmfuns{border-top:1px solid var(--border)}
@@ -319,34 +442,34 @@ nav{display:flex;align-items:center;gap:2px}
 .ff-icon{font-size:24px;margin-bottom:11px;display:block}
 .ff-card:nth-child(3) .ff-icon{margin-bottom:0;font-size:20px}
 .ff-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
-.ff-desc{font-size:11px;font-weight:300;color:var(--muted);line-height:1.65}
+.ff-desc{font-size:11px;font-weight:700;color:var(--muted);line-height:1.65}
 .ff-arrow{position:absolute;top:16px;right:16px;color:var(--dim);font-size:14px;transition:transform .2s,color .2s}
 .ff-card:hover .ff-arrow{transform:translate(3px,-3px);color:var(--accent)}
 
 /* ═══ FOOTER ═══ */
-footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba(0,0,0,.22);position:relative;z-index:1}
+footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-image:url('bg-footer.png');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;z-index:1}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:44px;padding-bottom:32px;border-bottom:1px solid var(--border)}
 .footer-logo-t{font-size:15px;font-weight:700;margin-bottom:9px}
-.footer-desc{font-size:11.5px;font-weight:300;color:var(--muted);line-height:1.75;max-width:210px}
-.footer-col-t{font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;padding-bottom:9px;border-bottom:1px solid var(--border)}
-.footer-link{display:block;font-size:12px;font-weight:300;color:var(--muted);text-decoration:none;margin-bottom:8px;transition:color .2s;cursor:pointer}
+.footer-desc{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.75;max-width:210px}
+.footer-col-t{font-size:8px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:14px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+.footer-link{display:block;font-size:12px;font-weight:700;color:var(--muted);text-decoration:none;margin-bottom:8px;transition:color .2s;cursor:pointer}
 .footer-link:hover{color:var(--accent)}
 .footer-socials{display:flex;gap:9px;margin-top:16px}
-.footer-social{width:29px;height:29px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:9.5px;font-weight:600;transition:all .2s;cursor:pointer}
+.footer-social{width:29px;height:29px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:9.5px;font-weight:700;transition:all .2s;cursor:pointer}
 .footer-social:hover{border-color:var(--accent);color:var(--accent)}
 .footer-btm{max-width:1200px;margin:20px auto 0;display:flex;justify-content:space-between;align-items:center}
-.footer-copy{font-size:10px;font-weight:300;color:var(--dim)}
-.footer-tag{font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim);border:1px solid var(--border);padding:3px 9px;border-radius:2px}
+.footer-copy{font-size:10px;font-weight:700;color:var(--dim)}
+.footer-tag{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);border:1px solid var(--border);padding:3px 9px;border-radius:2px}
 
 /* ═══ SUBPAGES ═══ */
 .sp-hero{padding:calc(86px + 64px) 48px 60px;max-width:1200px;margin:0 auto}
-.sp-back{font-family:var(--hv);font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin-bottom:36px;transition:color .2s;background:none;border:none}
+.sp-back{font-family:var(--hv);font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin-bottom:36px;transition:color .2s;background:none;border:none}
 .sp-back:hover{color:var(--accent)}
 .sp-title{font-size:clamp(42px,7vw,78px);font-weight:700;line-height:1.0;letter-spacing:-2px;margin-bottom:13px}
-.sp-title-i{font-weight:300;font-style:italic;color:var(--accent2)}
-.sp-sub{font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+.sp-title-i{font-weight:700;font-style:italic;color:var(--accent2)}
+.sp-sub{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
 .sp-div{width:48px;height:1px;background:rgba(200,169,110,.4);margin-bottom:26px}
-.sp-desc{font-size:13.5px;font-weight:300;color:rgba(242,237,229,.6);line-height:1.85;max-width:540px}
+.sp-desc{font-size:13.5px;font-weight:700;color:rgba(242,237,229,.6);line-height:1.85;max-width:540px}
 .sp-content{max-width:1200px;margin:0 auto;padding:0 48px 80px}
 .sp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .sp-card{
@@ -354,21 +477,22 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
   border:1px solid var(--border);border-radius:10px;padding:24px 20px;transition:all .25s
 }
 .sp-card:hover{background:var(--glass2);border-color:rgba(200,169,110,.18);transform:translateY(-4px);box-shadow:0 16px 44px rgba(0,0,0,.45)}
-.sp-num{font-size:30px;font-weight:800;color:var(--accent);opacity:.22;line-height:1;margin-bottom:10px}
+.sp-num{font-size:30px;font-weight:700;color:var(--accent);opacity:.22;line-height:1;margin-bottom:10px}
 .sp-item-t{font-size:15px;font-weight:700;margin-bottom:6px}
-.sp-item-d{font-size:11.5px;font-weight:300;color:var(--muted);line-height:1.7}
+.sp-item-d{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.7}
 
 /* PAGE TRANSITION */
 .page-fade{animation:pfade .35s ease forwards}
 @keyframes pfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes glow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
 
 /* MEMBERS PAGE */
 .mp-grid{max-width:1200px;margin:0 auto;padding:0 48px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .mc{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:8px;padding:16px 12px;text-align:center;transition:all .22s}
 .mc:hover{background:var(--glass2);border-color:rgba(200,169,110,.18);transform:translateY(-3px)}
 .mc-av{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.28),rgba(200,169,110,.04));border:1px solid rgba(200,169,110,.22);margin:0 auto 9px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--accent)}
-.mc-name{font-size:11px;font-weight:500;margin-bottom:3px}
-.mc-yr{font-size:9px;font-weight:400;color:var(--dim);letter-spacing:.8px}
+.mc-name{font-size:11px;font-weight:700;margin-bottom:3px}
+.mc-yr{font-size:9px;font-weight:700;color:var(--dim);letter-spacing:.8px}
 </style>
 </head>
 <body>
@@ -378,31 +502,17 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
   <div class="header-logo" onclick="showPage('home')">
     <!-- IMAGE FILE: assets/logo-header.png (36×36px recommended, circular crop) -->
     <div class="header-logo-img" id="logoMark">
-      <img src="assets/logo-header.png" alt="OF" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
-      <span class="header-logo-fallback" id="logoFallback">OF</span>
+      <img src="Logo.png" alt="Orang Film" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
     </div>
-    <div>
-      <span class="header-logo-text">Orang Film</span>
-      <span class="header-logo-sub">Produksi Media · UI</span>
-    </div>
+
   </div>
-  <div class="header-timer" id="timer">00:00:00</div>
+  <div class="digital-clock" id="digitalClock">00.00</div>
   <div class="hspc"></div>
   <nav>
     <a class="nav-link" onclick="scrollSec('sec-works')">Our Works</a>
     <a class="nav-link" onclick="scrollSec('sec-achievements')">Achievements</a>
     <a class="nav-link" onclick="showPage('members')">Members</a>
-    <div class="nav-dropdown" id="subDD">
-      <button class="nav-dropdown-btn" onclick="toggleDD()">
-        <span id="ddText">Film Funs</span>
-        <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </button>
-      <div class="nav-dropdown-menu">
-        <a class="nav-dropdown-item" id="dd-filmfuns"   onclick="selectSub('filmfuns')">Film Funs</a>
-        <a class="nav-dropdown-item" id="dd-filmquest"  onclick="selectSub('filmquest')">FilmQuest</a>
-        <a class="nav-dropdown-item" id="dd-starterkit" onclick="selectSub('starterkit')">StarterKit</a>
-      </div>
-    </div>
+    <img src="FFButton-FirstS.png" alt="Film Funs" style="cursor:pointer; height:20px; width:auto; vertical-align:middle; margin-left:5px;" onclick="selectSub('filmfuns')">
   </nav>
 </header>
 
@@ -424,58 +534,62 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
 <div id="page-home" class="page active">
   <!-- HERO -->
   <section id="home-hero">
-    <div class="hero-glow hg1"></div><div class="hero-glow hg2"></div>
-    <div class="hero-inner">
-      <div class="hero-logo-wrap">
-        <div class="hero-logo-circle">
-          <div class="hero-logo-inner">
-            <div class="hero-logo-OF">OF</div>
-            <div class="hero-logo-dots"><span class="hero-logo-dot"></span><span class="hero-logo-dot"></span><span class="hero-logo-dot"></span></div>
-          </div>
-        </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; align-items:center; justify-items:center; padding:0; gap:40px; width:100%; max-width:1200px; margin:0 auto;">
+      <div style="display:flex; justify-content:center;">
+        <img src="Logo-FirstS.png" alt="Orang Film Logo" style="max-width:400px; height:auto;">
       </div>
-      <div class="hero-content page-fade">
-        <p class="hero-eyebrow">Peminatan Produksi Media</p>
-        <h1 class="hero-title"><span class="hero-title-italic">Orang</span> Film<span class="hero-title-ui">Universitas Indonesia</span></h1>
-        <div class="hero-div"></div>
-        <div class="glass-card hero-card">
-          <p>Orang Film UI adalah sebuah studio yang juga menjadi <strong>mini production house</strong> di Produksi Media yang berfokus pada bidang <strong>Filmografi, Fotografi &amp; Videografi</strong>. Orang Film mempersiapkan mahasiswanya untuk masuk ke industri kreatif khususnya film. Selain itu, Orang Film juga memiliki visi untuk menjadi <strong>rumah produksi film terdepan di UI</strong> yang mendorong kreativitas dan inovasi terbaru di industri film dan fotografi.</p>
-        </div>
-        <div class="hero-tags">
-          <button class="hero-tag" onclick="selectSub('filmfuns')">Film Funs</button>
-          <button class="hero-tag" onclick="selectSub('filmquest')">FilmQuest</button>
-          <button class="hero-tag" onclick="selectSub('starterkit')">StarterKit</button>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:25px;">
+        <img src="Desc-FirstS.png" alt="Orang Film Description" style="max-width:500px; height:auto;">
+        <div style="display:flex; gap:20px;">
+          <img src="FFButton-FirstS.png" alt="Film Funs" style="cursor:pointer; max-width:180px; height:auto;" onclick="selectSub('filmfuns')">
+          <img src="SKButton-FirstS.png" alt="StarterKit" style="cursor:pointer; max-width:180px; height:auto;" onclick="selectSub('starterkit')">
         </div>
       </div>
     </div>
-    <div class="scroll-hint"><span>Scroll</span><div class="scroll-arrow"></div></div>
+
   </section>
 
   <!-- OUR WORKS -->
   <section id="sec-works" class="sec-full">
     <div class="inner">
       <div class="works-head">
-        <p class="eyebrow" style="justify-content:center">Karya Kami</p>
-        <h2 class="sec-title" style="margin-bottom:0;text-align:center">Our <span class="sec-title-i">Works</span></h2>
+
+        <img src="OurWorks-Title.png" alt="Our Works" style="max-width:400px; height:auto; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
         <p class="works-sub">Klik poster untuk melihat detail — scroll antar film di halaman detail</p>
       </div>
-      <div class="works-zigzag" id="filmsZigzag">
-        <!-- Rendered by JS -->
+      <div class="works-zigzag">
+        <div class="film-card" onclick="showFilm(0)">
+          <img src="african roots-FilmPoster.png" alt="African Roots" style="width:100%; height:auto; display:block; border-radius:10px;">
+        </div>
+        <div class="film-card" onclick="showFilm(1)">
+          <img src="bitter and sweet-FilmPoster.png" alt="Bitter and Sweet" style="width:100%; height:auto; display:block; border-radius:10px;">
+        </div>
+        <div class="film-card" onclick="showFilm(2)">
+          <img src="dibalik kampung tongkol-FilmPoster.png" alt="Dibalik Kampung Tongkol" style="width:100%; height:auto; display:block; border-radius:10px;">
+        </div>
+        <div class="film-card" onclick="showFilm(3)">
+          <img src="ink and silence-FilmPoster.png" alt="Ink and Silence" style="width:100%; height:auto; display:block; border-radius:10px;">
+        </div>
+        <div class="film-card" onclick="showFilm(4)">
+          <img src="make a wish karin-FilmPoster.png" alt="Make a Wish Karin" style="width:100%; height:auto; display:block; border-radius:10px;">
+        </div>
+        <div class="film-card" onclick="showFilm(5)">
+          <img src="roots against the tide-FilmPoster.png" alt="Roots Against the Tide" style="width:100%; height:auto; display:block; border-radius:10px;">
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ACHIEVEMENTS -->
   <section id="sec-achievements" class="section">
-    <p class="eyebrow">Pencapaian</p>
-    <h2 class="sec-title">Achie<span class="sec-title-i">vements</span></h2>
+
+    <img src="Achievements-Title.png" alt="Achievements" style="max-width:500px; height:auto; margin-bottom:44px; display:block; margin-left:auto; margin-right:auto;">
     <div class="lb-wrap" id="leaderboard"></div>
   </section>
 
   <!-- MEMBERS -->
   <section id="sec-members" class="section">
-    <p class="eyebrow">Tim Kami</p>
-    <h2 class="sec-title">Mem<span class="sec-title-i">bers</span></h2>
+    <img src="Members-Title.png" alt="Members" style="max-width:400px; height:auto; margin-bottom:44px; display:block; margin-left:auto; margin-right:auto;">
     <p class="members-desc">Daftarkan dirimu di <a href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a> untuk bergabung menjadi anggota kami.</p>
     <div class="members-grid">
       <div class="member-year-card">
@@ -505,12 +619,17 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
 
   <!-- FILM FUNS SECTION -->
   <section id="sec-filmfuns" class="section">
-    <p class="eyebrow">Komunitas</p>
-    <h2 class="sec-title">Film <span class="sec-title-i">Funs</span></h2>
-    <div class="ff-grid">
-      <div class="ff-card" onclick="selectSub('filmquest')"><span class="ff-arrow">↗</span><span class="ff-icon">🎬</span><div class="ff-name">FilmQuest</div><p class="ff-desc">Eksplorasi dan tantangan sinematik interaktif untuk mengasah kreativitasmu.</p></div>
-      <div class="ff-card" onclick="selectSub('starterkit')"><span class="ff-arrow">↗</span><span class="ff-icon">📦</span><div class="ff-name">StarterKit</div><p class="ff-desc">Panduan dan sumber daya onboarding untuk anggota baru Orang Film UI.</p></div>
-      <div class="ff-card" onclick="window.open('https://letterboxd.com','_blank')"><span class="ff-arrow">↗</span><span class="ff-icon" style="font-size:18px;margin-bottom:0">🎞</span><div><div class="ff-name" style="font-size:14px">Letterboxd</div><p class="ff-desc" style="font-size:10.5px">Ikuti kami di Letterboxd</p></div></div>
+    <img src="FilmFuns-Title.png" alt="Film Funs" style="max-width:400px; height:auto; margin-bottom:44px; display:block; margin-left:auto; margin-right:auto;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px 30px; max-width:700px; margin:0 auto; align-items:start;">
+      <button onclick="selectSub('filmquest')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="FilmQuest.png" alt="FilmQuest" style="width:100%; max-width:280px; height:auto;">
+      </button>
+      <button onclick="selectSub('starterkit')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="StarterKit.png" alt="StarterKit" style="width:100%; max-width:280px; height:auto;">
+      </button>
+      <button onclick="window.open('https://letterboxd.com','_blank')" style="background:none;border:none;cursor:pointer;padding:0;grid-column:1/-1;transition:transform .2s;justify-self:center;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="Letterboxd.png" alt="Letterboxd" style="width:100%; max-width:280px; height:auto;">
+      </button>
     </div>
   </section>
 
@@ -527,19 +646,11 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
 
 <!-- ════════════════════ PAGE: FILM DETAIL ════════════════════ -->
 <div id="page-film" class="page">
-  <div class="film-viewer">
-    <div class="film-viewer-header">
-      <button class="film-viewer-back" onclick="showPage('home')">← Kembali</button>
-      <span class="film-viewer-title" id="filmViewerTitle">Our Works</span>
-      <div class="film-viewer-nav">
-        <button class="film-nav-btn" id="btnPrev" onclick="navigateFilm(-1)">← Sebelumnya</button>
-        <button class="film-nav-btn" id="btnNext" onclick="navigateFilm(1)">Selanjutnya →</button>
-      </div>
-    </div>
-    <div class="film-scroll-container">
-      <div class="film-detail-wrap" id="filmDetailWrap"></div>
-    </div>
+  <button class="film-back-btn" onclick="showPage('home')">← Kembali</button>
+  <div class="film-scroll-container" id="filmScrollContainer">
+    <!-- Film sections will be rendered by JavaScript -->
   </div>
+
 </div>
 
 <!-- ════════════════════ PAGE: MEMBERS ════════════════════ -->
@@ -561,42 +672,212 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
 
 <!-- ════════════════════ PAGE: FILMFUNS ════════════════════ -->
 <div id="page-filmfuns" class="page">
-  <div class="sp-hero">
-    <button class="sp-back" onclick="showPage('home')">← Kembali ke Home</button>
-    <p class="eyebrow">Komunitas</p>
-    <h1 class="sp-title">Film <span class="sp-title-i">Funs</span></h1>
-    <p class="sp-sub">Program Komunitas · Orang Film UI</p>
-    <div class="sp-div"></div>
-    <p class="sp-desc">Film Funs adalah program komunitas yang mendorong eksplorasi sinematik melalui tiga program utama.</p>
-  </div>
-  <div class="sp-content">
-    <div class="ff-grid" style="max-width:100%">
-      <div class="ff-card" onclick="selectSub('filmquest')"><span class="ff-arrow">↗</span><span class="ff-icon">🎬</span><div class="ff-name">FilmQuest</div><p class="ff-desc">Tantangan sinematik berkala dengan mini-games interaktif dan reward SD Card.</p></div>
-      <div class="ff-card" onclick="selectSub('starterkit')"><span class="ff-arrow">↗</span><span class="ff-icon">📦</span><div class="ff-name">StarterKit</div><p class="ff-desc">Rakit starter kit personalmu dengan koleksi yang kamu dapat dari FilmQuest.</p></div>
-      <div class="ff-card" onclick="window.open('https://letterboxd.com','_blank')"><span class="ff-arrow">↗</span><span class="ff-icon" style="font-size:18px;margin-bottom:0">🎞</span><div><div class="ff-name" style="font-size:14px">Letterboxd</div><p class="ff-desc" style="font-size:10.5px">Ikuti jurnal tontonan kami</p></div></div>
+  <button class="sp-back" onclick="showPage('home')">← Kembali</button>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:40px;">
+    <img src="FilmFuns-Title.png" alt="Film Funs" style="max-width:550px;width:100%;height:auto;display:block;margin:0 auto 40px;">
+    <img src="desc.png" alt="Film Funs Description" style="max-width:700px;width:100%;height:auto;display:block;margin:0 auto 60px;">
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-bottom:60px;">
+      <img src="sd cards.png" alt="SD Cards" style="max-width:280px;width:100%;height:auto;">
+      <img src="card-desk-sd.png" alt="Card Desc SD" style="max-width:280px;width:100%;height:auto;">
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-bottom:60px;">
+      <button onclick="selectSub('filmquest')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="FilmQuest.png" alt="FilmQuest" style="max-width:280px;width:100%;height:auto;">
+      </button>
+      <img src="desc-2.png" alt="Desc 2" style="max-width:280px;width:100%;height:auto;">
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-bottom:60px;">
+      <button onclick="selectSub('starterkit')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="StarterKit.png" alt="StarterKit" style="max-width:280px;width:100%;height:auto;">
+      </button>
+      <img src="desc-2.png" alt="Desc 2" style="max-width:280px;width:100%;height:auto;">
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:30px;margin-bottom:60px;">
+      <button onclick="window.open('https://letterboxd.com','_blank')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="Letterboxd.png" alt="Letterboxd" style="max-width:280px;width:100%;height:auto;">
+      </button>
+      <img src="desc-2.png" alt="Desc 2" style="max-width:280px;width:100%;height:auto;">
     </div>
   </div>
-  <footer style="margin-top:40px"><div class="footer-inner"><div><div class="footer-logo-t">Orang Film UI</div></div><div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a></div><div></div><div></div></div><div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI</span><span class="footer-tag">Film Funs</span></div></footer>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
 </div>
 
 <!-- ════════════════════ PAGE: FILMQUEST (link to game file) ════════════════════ -->
 <div id="page-filmquest" class="page">
-  <div class="sp-hero">
-    <button class="sp-back" onclick="selectSub('filmfuns')">← Kembali ke Film Funs</button>
-    <p class="eyebrow">Film Funs · Mini Games</p>
-    <h1 class="sp-title">Film<span class="sp-title-i">Quest</span></h1>
-    <p class="sp-sub">Selesaikan quest, kumpulkan SD Card</p>
-    <div class="sp-div"></div>
-    <p class="sp-desc">Selesaikan semua quest untuk mengumpulkan maksimal 4 SD Card. Gunakan koleksimu di Starter Kit!</p>
+  <button class="sp-back" onclick="showPage('home')">← Kembali</button>
+  <div class="fq-hero" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px 60px;position:relative;">
+    <img src="FilmQuest.png" alt="FilmQuest Hero" style="max-width:900px;width:100%;height:auto;">
   </div>
-  <div class="sp-content">
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px" id="questCards"></div>
-    <div style="text-align:center;padding:32px;background:var(--glass);border:1px solid var(--border);border-radius:12px">
-      <p style="font-size:13px;font-weight:300;color:var(--muted);margin-bottom:16px">Buka halaman mini-games untuk memulai bermain</p>
-      <button onclick="window.open('filmfuns-games.html','_blank')" style="background:var(--accent);color:#000;border:none;padding:12px 28px;border-radius:6px;font-family:var(--hv);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer">Buka Film Funs Games →</button>
+  <div class="fq-bento" style="position:relative;display:flex;flex-direction:column;align-items:center;padding:40px 24px 100px;">
+    <img src="Bento.png" alt="Bento" style="max-width:600px;width:100%;height:auto;">
+    <img src="Start-Button.png" alt="Start" style="position:absolute;top:32%;left:50%;transform:translate(-50%,-50%);max-width:180px;width:100%;height:auto;cursor:pointer;" onclick="selectSub('filmfuns')">
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:40px;padding:20px 24px 60px;">
+    <button onclick="showPage('vendingm')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <img src="vendingm.png" alt="Vending Machine" style="max-width:500px;width:100%;height:auto;">
+    </button>
+    <img src="claw.png" alt="Claw Machine" style="max-width:500px;width:100%;height:auto;cursor:pointer;">
+    <img src="ball.png" alt="Ball" style="max-width:500px;width:100%;height:auto;cursor:pointer;">
+    <img src="photobooth1.png" alt="Photo Booth" style="max-width:500px;width:100%;height:auto;cursor:pointer;">
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
+<!-- ════════════════════ PAGE: VENDING MACHINE ════════════════════ -->
+<div id="page-vendingm" class="page">
+  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
+  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--muted);font-size:20px;">✕</span>
+  </div>
+  <div onclick="showPage('claw')" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:20px;">›</span>
+  </div>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <img src="title-vending.png" alt="Title Vending" style="max-width:600px;width:100%;height:auto;margin-bottom:30px;">
+    <div style="position:relative;display:inline-block;max-width:600px;width:100%;">
+      <img src="vending.png" alt="Vending Machine" style="max-width:100%;width:100%;height:auto;">
+      <img src="push-button.png" alt="Push Button" onclick="dispenseFilm()" style="position:absolute;top:78%;left:40%;transform:translate(-50%,-50%);max-width:240px;width:100%;height:auto;cursor:pointer;transition:transform .2s;" onmouseover="this.style.transform='translate(-50%,-50%) scale(1.05)'" onmouseout="this.style.transform='translate(-50%,-50%) scale(1)'">
+    </div>
+    
+    <div style="margin-top:40px;display:flex;align-items:flex-start;justify-content:center;gap:60px;">
+      <div style="text-align:center;cursor:pointer;" onclick="showCategory('ed')">
+        <img src="ed.png" alt="Reviewed" style="max-width:200px;width:100%;height:auto;margin-bottom:15px;">
+        <div id="ed-list" style="display:flex;flex-direction:column;gap:10px;align-items:center;min-height:60px;"></div>
+      </div>
+      <div style="text-align:center;cursor:pointer;" onclick="showCategory('un')">
+        <img src="un.png" alt="Unreviewed" style="max-width:200px;width:100%;height:auto;margin-bottom:15px;">
+        <div id="un-list" style="display:flex;flex-direction:column;gap:10px;align-items:center;min-height:60px;"></div>
+      </div>
+    </div>
+    
+    <div id="vending-display" style="display:none;margin-top:40px;">
+      <div style="position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:center;justify-content:center;" onclick="closeVendingPopup()">
+        <div style="position:relative;text-align:center;" onclick="event.stopPropagation()">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:400px;background:radial-gradient(circle,rgba(200,169,110,.5) 0%,transparent 70%);border-radius:50%;animation:glow 1.5s ease-in-out infinite;pointer-events:none;"></div>
+          <img id="dispensed-poster" src="" alt="Film Poster" style="max-width:280px;width:100%;height:auto;border-radius:10px;box-shadow:0 0 40px rgba(200,169,110,.6);position:relative;z-index:1;">
+          <div style="margin-top:20px;display:flex;align-items:center;justify-content:center;gap:30px;">
+            <button onclick="selectReward('ed')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <img src="ed.png" alt="Reviewed" style="max-width:180px;width:100%;height:auto;">
+            </button>
+            <button onclick="selectReward('un')" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <img src="un.png" alt="Unreviewed" style="max-width:180px;width:100%;height:auto;">
+            </button>
+          </div>
+          <button onclick="closeVendingPopup()" style="margin-top:20px;background:var(--glass);border:1px solid var(--border);color:var(--muted);padding:8px 20px;border-radius:20px;cursor:pointer;font-size:12px;">Tutup</button>
+        </div>
+      </div>
     </div>
   </div>
-  <footer style="margin-top:40px"><div class="footer-inner"><div><div class="footer-logo-t">Orang Film UI</div></div><div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div><div></div><div></div></div><div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI</span><span class="footer-tag">FilmQuest</span></div></footer>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
+<!-- ════════════════════ PAGE: CATEGORY (Reviewed/Unreviewed) ════════════════════ -->
+<div id="page-category" class="page">
+  <button class="sp-back" onclick="showPage('vendingm')">← Kembali ke Vending Machine</button>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <h1 class="sp-title" id="category-title" style="margin-bottom:40px;">Category</h1>
+    <div id="category-content" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:center;"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
+<!-- ════════════════════ PAGE: CLAW MACHINE ════════════════════ -->
+<div id="page-claw" class="page">
+  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
+  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--muted);font-size:20px;">✕</span>
+  </div>
+  <div onclick="showPage('ball')" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:20px;">›</span>
+  </div>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <img src="title-claw.png" alt="Title Claw" style="max-width:600px;width:100%;height:auto;margin-bottom:30px;">
+    <div style="position:relative;display:inline-block;max-width:600px;width:100%;">
+      <img src="claw1.png" alt="Claw Machine" style="max-width:100%;width:100%;height:auto;">
+      <img src="button-claw.png" alt="Claw Button" onclick="pullClaw()" style="position:absolute;top:78%;left:66%;transform:translate(-50%,-50%);max-width:80px;width:100%;height:auto;cursor:pointer;transition:transform .2s;" onmouseover="this.style.transform='translate(-50%,-50%) scale(1.05)'" onmouseout="this.style.transform='translate(-50%,-50%) scale(1)'">
+    </div>
+    
+    <div style="position:relative;display:inline-block;max-width:350px;width:100%;margin:30px auto;">
+      <img src="result-box.png" alt="Result Box" style="max-width:100%;width:100%;height:auto;">
+      <img id="claw-entry-result" src="" alt="Entry Result" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:60%;width:100%;height:auto;display:none;">
+    </div>
+    
+    <div id="claw-choices" style="display:none;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:40px;margin-bottom:20px;">
+        <button onclick="skipClaw()" style="background:var(--glass);border:1px solid var(--border);color:var(--muted);padding:12px 30px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;">Skip</button>
+        <button onclick="addToCollection()" style="background:var(--accent);border:none;color:#000;padding:12px 30px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;">Add to Collection</button>
+      </div>
+    </div>
+    
+    <div style="margin-top:50px;">
+      <button onclick="showCollection()" style="background:none;border:none;cursor:pointer;padding:0;transition:transform .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <img src="collect.png" alt="Collection" style="max-width:300px;width:100%;height:auto;">
+      </button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
+<!-- ════════════════════ PAGE: COLLECTION ════════════════════ -->
+<div id="page-collection" class="page">
+  <button class="sp-back" onclick="showPage('claw')">← Kembali ke Claw Machine</button>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <h1 class="sp-title" style="margin-bottom:40px;">Collection</h1>
+    <div id="collection-content" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:center;"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
 </div>
 
 <!-- ════════════════════ PAGE: STARTERKIT ════════════════════ -->
@@ -623,34 +904,34 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background:rgba
 <script>
 /* ═══ DATA ═══ */
 const films=[
-  {id:0,title:'Setelah Hujan Reda',year:'2023',genre:'Drama',director:'Daffa Hanif Fahrizal',duration:'18 menit',poster:'p1',
+  {id:0,title:'African Roots',year:'2023',genre:'Drama',director:'Daffa Hanif Fahrizal',duration:'18 menit',poster:'p1',
    /* IMAGE FILE: assets/poster_setelah_hujan_reda.jpg (recommended 400×600px) */
-   img:'assets/poster_setelah_hujan_reda.jpg',
+   img:'african roots-FilmPoster.png',
    trailer:'https://youtube.com',
    synopsis:'Kisah seorang perempuan muda yang kembali ke kampung halaman setelah sepuluh tahun merantau. Di tengah hujan yang tak kunjung berhenti, ia menemukan bahwa beberapa kenangan tidak bisa begitu saja ditinggalkan.',
    team:[{name:'Daffa Hanif Fahrizal',role:'Sutradara'},{name:'Muhammad Razzan Arnandatama',role:'Sinematografi'},{name:'Razita Irdina Chariski',role:'Produser'},{name:'Bening Andara Solehan',role:'Penyunting'},{name:'Faiz Mumtaz',role:'Sound'}]},
-  {id:1,title:'Ruang Kosong',year:'2023',genre:'Dokumenter',director:'Muhammad Razzan Arnandatama',duration:'24 menit',poster:'p2',
-   img:'assets/poster_ruang_kosong.jpg',
+  {id:1,title:'Bitter and Sweet',year:'2023',genre:'Dokumenter',director:'Muhammad Razzan Arnandatama',duration:'24 menit',poster:'p2',
+   img:'bitter and sweet-FilmPoster.png',
    trailer:'https://youtube.com',
    synopsis:'Dokumenter tentang seorang seniman lansia di Yogyakarta yang menghabiskan seluruh hidupnya membuat patung dari bahan-bahan bekas. Sebuah potret tentang kesepian, kreativitas, dan makna meninggalkan warisan.',
    team:[{name:'Muhammad Razzan Arnandatama',role:'Sutradara & Kamera'},{name:'Daffa Hanif Fahrizal',role:'Produser'},{name:'Razita Irdina Chariski',role:'Penyunting'}]},
-  {id:2,title:'Dering Tengah Malam',year:'2024',genre:'Fiksi Ilmiah',director:'Muhammad Ghiyas Pratama P.',duration:'21 menit',poster:'p3',
-   img:'assets/poster_dering_tengah_malam.jpg',
+  {id:2,title:'Dibalik Kampung Tongkol',year:'2024',genre:'Fiksi Ilmiah',director:'Muhammad Ghiyas Pratama P.',duration:'21 menit',poster:'p3',
+   img:'dibalik kampung tongkol-FilmPoster.png',
    trailer:'https://youtube.com',
    synopsis:'Seorang insinyur komunikasi menerima sinyal misterius dari frekuensi yang tidak seharusnya ada. Film pendek fiksi ilmiah pertama Orang Film UI yang menggunakan teknik practical effects.',
    team:[{name:'Muhammad Ghiyas Pratama P.',role:'Sutradara'},{name:'Reynold Imanuel Hutapea',role:'Sinematografi'},{name:'Faiz Mumtaz',role:'Sound Design'},{name:'Naura Zhafirah Irawan',role:'Penyunting'}]},
-  {id:3,title:'Kami yang Tertinggal',year:'2024',genre:'Komedi Drama',director:'Reynold Imanuel Hutapea',duration:'15 menit',poster:'p4',
-   img:'assets/poster_kami_yang_tertinggal.jpg',
+  {id:3,title:'Ink and Silence',year:'2024',genre:'Komedi Drama',director:'Reynold Imanuel Hutapea',duration:'15 menit',poster:'p4',
+   img:'ink and silence-FilmPoster.png',
    trailer:'https://youtube.com',
    synopsis:'Empat mahasiswa yang ketinggalan bus terakhir ke kampus harus menavigasi kota asing bersama. Satu malam penuh kejutan, persahabatan baru, dan pelajaran tentang melepas kendali.',
    team:[{name:'Reynold Imanuel Hutapea',role:'Sutradara'},{name:'Azova Fajrul Falah Susilo',role:'Sinematografi'},{name:'Puteri Jingga Aprilia',role:'Produser'},{name:'Manissa Dzakirah Adani',role:'Penyunting'}]},
-  {id:4,title:'Satu Menit Lagi',year:'2024',genre:'Thriller',director:'Faiz Mumtaz',duration:'19 menit',poster:'p5',
-   img:'assets/poster_satu_menit_lagi.jpg',
+  {id:4,title:'Make a Wish Karin',year:'2024',genre:'Thriller',director:'Faiz Mumtaz',duration:'19 menit',poster:'p5',
+   img:'make a wish karin-FilmPoster.png',
    trailer:'https://youtube.com',
    synopsis:'Seorang perempuan terjebak di dalam lift gedung perkantoran yang kosong. Dengan baterai ponsel tersisa 3%, ia harus memilih kepada siapa ia harus menelepon.',
    team:[{name:'Faiz Mumtaz',role:'Sutradara'},{name:'Karina Dyah Paramitha',role:'Sinematografi'},{name:'Alifia Bintang Tabita',role:'Produser'},{name:'Callista Sheila Adifa',role:'Penyunting'}]},
-  {id:5,title:'Bayangan Ketiga',year:'2025',genre:'Horor',director:'Razita Irdina Chariski',duration:'22 menit',poster:'p6',
-   img:'assets/poster_bayangan_ketiga.jpg',
+  {id:5,title:'Roots Against the Tide',year:'2025',genre:'Horor',director:'Razita Irdina Chariski',duration:'22 menit',poster:'p6',
+   img:'roots against the tide-FilmPoster.png',
    trailer:'https://youtube.com',
    synopsis:'Sebuah flat kecil di Jakarta menyimpan misteri yang hanya terlihat ketika jam menunjukkan tepat pukul tiga pagi. Film horor psikologis yang menggabungkan urban legend dengan realisme sinematografis.',
    team:[{name:'Razita Irdina Chariski',role:'Sutradara'},{name:'Daffa Hanif Fahrizal',role:'Sinematografi'},{name:'Bimantoro Setyo Hutomo',role:'Sound'},{name:'Robby Farhan Martyano',role:'Produser'}]},
@@ -676,10 +957,17 @@ const leaderboardData=[
   {rank:10,name:'Callista Sheila Adifa',score:'820 pts'},
 ];
 
-/* ═══ TIMER ═══ */
-const t0=Date.now();
-function pad(n){return String(n).padStart(2,'0')}
-setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);document.getElementById('timer').textContent=`${pad(Math.floor(s/3600))}:${pad(Math.floor((s%3600)/60))}:${pad(s%60)}`},1000);
+/* ═══ SESSION TIMER ═══ */
+const sessionStart=Date.now();
+function updateSessionTimer(){
+  const elapsed=Math.floor((Date.now()-sessionStart)/1000);
+  const h=Math.floor(elapsed/3600).toString().padStart(2,'0');
+  const m=Math.floor((elapsed%3600)/60).toString().padStart(2,'0');
+  const s=(elapsed%60).toString().padStart(2,'0');
+  document.getElementById('digitalClock').textContent=`${h}:${m}:${s}`;
+}
+setInterval(updateSessionTimer,1000);
+updateSessionTimer();
 
 /* ═══ HEADER ═══ */
 function toggleDD(){document.getElementById('subDD').classList.toggle('open')}
@@ -693,12 +981,72 @@ function showPage(id){
   if(t){t.classList.add('active');curPage=id;window.scrollTo({top:0,behavior:'smooth'})}
 }
 function selectSub(sub){
-  const lbl={filmfuns:'Film Funs',filmquest:'FilmQuest',starterkit:'StarterKit'};
-  document.getElementById('ddText').textContent=lbl[sub]||sub;
-  document.querySelectorAll('.nav-dropdown-item').forEach(i=>i.classList.remove('active-sub'));
-  const el=document.getElementById('dd-'+sub);if(el)el.classList.add('active-sub');
-  document.getElementById('subDD').classList.remove('open');
   showPage(sub);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+let currentDispensedPoster='';
+let edList=[];
+let unList=[];
+const vendingFilmPosters=['african roots-FilmPoster.png','bitter and sweet-FilmPoster.png','dibalik kampung tongkol-FilmPoster.png','ink and silence-FilmPoster.png','make a wish karin-FilmPoster.png','roots against the tide-FilmPoster.png'];
+function dispenseFilm(){
+  const display=document.getElementById('vending-display');
+  currentDispensedPoster=vendingFilmPosters[Math.floor(Math.random()*vendingFilmPosters.length)];
+  document.getElementById('dispensed-poster').src=currentDispensedPoster;
+  display.style.display='block';
+}
+function closeVendingPopup(){
+  document.getElementById('vending-display').style.display='none';
+}
+function selectReward(type){
+  if(type==='ed'){
+    edList.push(currentDispensedPoster);
+    alert('Film ditambahkan ke Reviewed!');
+  }else{
+    unList.push(currentDispensedPoster);
+    alert('Film ditambahkan ke Unreviewed!');
+  }
+  closeVendingPopup();
+}
+function showCategory(type){
+  const list=type==='ed'?edList:unList;
+  const container=document.getElementById('category-content');
+  const title=document.getElementById('category-title');
+  title.textContent=type==='ed'?'Reviewed':'Unreviewed';
+  if(list.length===0){
+    container.innerHTML='<p style="color:var(--muted);margin-top:40px;">Belum ada film dalam kategori ini.</p>';
+  }else{
+    container.innerHTML=list.map(poster=>`<img src="${poster}" style="max-width:180px;width:100%;height:auto;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">`).join('');
+  }
+  showPage('category');
+}
+let clawResult='';
+let collectionList=[];
+const clawEntries=['ENTRI (6) 1.png','ENTRI (6) 2.png','ENTRI (6) 3.png','ENTRI (6) 4.png','ENTRI (6) 5.png','ENTRI (6) 6.png'];
+function pullClaw(){
+  clawResult=clawEntries[Math.floor(Math.random()*clawEntries.length)];
+  const resultImg=document.getElementById('claw-entry-result');
+  resultImg.src=clawResult;
+  resultImg.style.display='block';
+  document.getElementById('claw-choices').style.display='block';
+}
+function skipClaw(){
+  document.getElementById('claw-entry-result').style.display='none';
+  document.getElementById('claw-choices').style.display='none';
+}
+function addToCollection(){
+  collectionList.push(clawResult);
+  alert('Item ditambahkan ke Collection!');
+  document.getElementById('claw-entry-result').style.display='none';
+  document.getElementById('claw-choices').style.display='none';
+}
+function showCollection(){
+  const container=document.getElementById('collection-content');
+  if(collectionList.length===0){
+    container.innerHTML='<p style="color:var(--muted);margin-top:40px;">Collection masih kosong.</p>';
+  }else{
+    container.innerHTML=collectionList.map(item=>`<img src="${item}" style="max-width:180px;width:100%;height:auto;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">`).join('');
+  }
+  showPage('collection');
 }
 function scrollSec(id){
   if(curPage!=='home'){showPage('home')}
@@ -722,53 +1070,57 @@ function renderZigzag(){
       </div>
     </div>`).join('');
 }
-renderZigzag();
+
 
 /* ═══ FILM DETAIL ═══ */
 let curFilm=0;
 function showFilm(i){
-  curFilm=i;renderFilmDetail();showPage('film');
+  curFilm=i;
+  if(curPage!=='film'){
+    showPage('film');
+  }
+  setTimeout(()=>{
+    const filmSections=document.querySelectorAll('.film-section');
+    if(filmSections[i]){
+      filmSections[i].scrollIntoView({behavior:'smooth'});
+    }
+  },100);
 }
-function navigateFilm(dir){
-  curFilm=(curFilm+dir+films.length)%films.length;
-  renderFilmDetail();
-  document.querySelector('.film-scroll-container').scrollTo({top:0,behavior:'smooth'});
-}
-function renderFilmDetail(){
-  const f=films[curFilm];
-  document.getElementById('filmViewerTitle').textContent=f.title;
-  document.getElementById('btnPrev').disabled=false;
-  document.getElementById('btnNext').disabled=false;
-  document.getElementById('filmDetailWrap').innerHTML=`
-    <div>
-      <div class="film-poster-frame">
-        <div class="film-poster-inner ${f.poster}" style="background-image:url('${f.img}')">
-          <div class="film-card-overlay"></div>
-          <div class="film-poster-placeholder" style="display:${f.img?'none':'flex'}">OF</div>
+function renderAllFilms(){
+  const container=document.getElementById('filmScrollContainer');
+  if(!container)return;
+  const headerHTML=`
+    <div class="film-detail-header">
+      <img src="OurWorks-Title.png" alt="Our Works" class="film-detail-header-title">
+      <div class="film-detail-cards">
+        ${films.map((f,i)=>`
+          <div class="film-detail-card" onclick="showFilm(${i})">
+            <img src="${f.img}" alt="${f.title}" onerror="this.style.display='none'">
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  const filmsHTML=films.map((f,i)=>`
+    <div class="film-section" id="film-section-${i}">
+      <div class="film-detail-grid">
+        <div class="film-poster-container">
+          <div class="film-poster-frame">
+            <img src="${f.img}" alt="${f.title}" class="film-poster-img" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div class="film-info-container">
+          <h1 class="film-title">${f.title}</h1>
+          <div class="film-description-card">
+            <p class="film-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="film-info-card glass-card page-fade" style="position:relative">
-      <div class="film-info-header">
-        <div class="film-info-genre">${f.genre}</div>
-        <h1 class="film-info-title">${f.title}</h1>
-        <p class="film-info-year">${f.year}</p>
-      </div>
-      <div class="film-info-body">
-        <p class="film-info-synopsis">${f.synopsis}</p>
-        <div class="film-info-stats">
-          <div><div class="film-stat-label">Sutradara</div><div class="film-stat-value">${f.director}</div></div>
-          <div><div class="film-stat-label">Durasi</div><div class="film-stat-value">${f.duration}</div></div>
-          <div><div class="film-stat-label">Tahun</div><div class="film-stat-value">${f.year}</div></div>
-          <div><div class="film-stat-label">Genre</div><div class="film-stat-value">${f.genre}</div></div>
-        </div>
-        <div class="film-info-actions">
-          <button class="btn-action btn-primary" onclick="window.open('${f.trailer}','_blank')">▶ Tonton Trailer</button>
-          <button class="btn-action btn-ghost" onclick="openTeamPopup(${f.id})">👥 Tim Produksi</button>
-        </div>
-      </div>
-    </div>`;
+  `).join('');
+  container.innerHTML=headerHTML+filmsHTML;
 }
+renderAllFilms();
 
 /* ═══ TEAM POPUP ═══ */
 function openTeamPopup(filmId){
@@ -803,7 +1155,7 @@ function renderLeaderboard(){
         <div class="lb-name">${podium[0].name}</div>
         <div class="lb-title">${podium[0].title}</div>
         <div class="lb-score">${podium[0].score}</div>
-        <div style="font-size:10px;font-weight:300;color:var(--muted);margin-top:6px;font-style:italic">${podium[0].desc||''}</div>
+        <div style="font-size:10px;font-weight:700;color:var(--muted);margin-top:6px;font-style:italic">${podium[0].desc||''}</div>
       </div>
       <div class="lb-podium-card lb-rank-3">
         <span class="lb-crown">${podium[2].crown}</span>
@@ -830,7 +1182,7 @@ document.getElementById('membersGrid').innerHTML=members.map(m=>`
     <div class="mc-yr">Angkatan ${m.year}</div>
   </div>`).join('')+
   `<div class="mc" style="grid-column:1/-1;text-align:center;padding:22px;border-style:dashed">
-    <div style="font-size:12px;font-weight:300;font-style:italic;color:var(--dim)">Angkatan 2024 & 2025 — To Be Announced</div>
+    <div style="font-size:12px;font-weight:700;font-style:italic;color:var(--dim)">Angkatan 2024 & 2025 — To Be Announced</div>
   </div>`;
 
 /* ═══ QUEST CARDS ═══ */
@@ -846,7 +1198,7 @@ if(qc)qc.innerHTML=quests.map(q=>`
     <div style="font-size:28px;margin-bottom:10px">${q.icon}</div>
     <div class="sp-item-t">${q.name}</div>
     <p class="sp-item-d" style="margin-bottom:10px">${q.desc}</p>
-    <span style="font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid var(--aborder);padding:3px 8px;border-radius:2px">${q.reward}</span>
+    <span style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);border:1px solid var(--aborder);padding:3px 8px;border-radius:2px">${q.reward}</span>
   </div>`).join('');
 </script>
 </body>
