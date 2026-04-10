@@ -862,6 +862,88 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
   </footer>
 </div>
 
+<!-- ════════════════════ PAGE: BALL ════════════════════ -->
+<div id="page-ball" class="page">
+  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
+  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--muted);font-size:20px;">✕</span>
+  </div>
+  <div onclick="showPage('photobooth')" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:20px;">›</span>
+  </div>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <img src="title-ball.png" alt="Title Ball" style="max-width:600px;width:100%;height:auto;margin-bottom:30px;">
+    <div style="position:relative;display:inline-block;max-width:500px;width:100%;">
+      <img src="ball1.png" alt="Ball" style="max-width:100%;width:100%;height:auto;">
+      <img src="gumball-button.png" alt="Gumball Button" style="position:absolute;top:78%;left:50%;transform:translate(-50%,-50%);max-width:100px;width:100%;height:auto;cursor:pointer;">
+    </div>
+    <img src="quote.png" alt="Quote" style="max-width:500px;width:100%;height:auto;margin-top:30px;">
+    <img src="guess.png" alt="Guess" style="max-width:500px;width:100%;height:auto;margin-top:30px;">
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
+<!-- ════════════════════ PAGE: PHOTOBOOTH ════════════════════ -->
+<div id="page-photobooth" class="page">
+  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
+  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--muted);font-size:20px;">✕</span>
+  </div>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <img src="title-photo.png" alt="Title Photo" style="max-width:600px;width:100%;height:auto;margin-bottom:30px;">
+    <div style="position:relative;display:inline-block;max-width:500px;width:100%;">
+      <img src="Photobooth.png" alt="Photobooth" style="max-width:100%;width:100%;height:auto;">
+      <img src="photo-button.png" alt="Photo Button" onclick="showPage('camera')" style="position:absolute;top:80%;left:50%;transform:translate(-50%,-50%);max-width:120px;width:100%;height:auto;cursor:pointer;">
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
+<!-- ════════════════════ PAGE: CAMERA ════════════════════ -->
+<div id="page-camera" class="page">
+  <button class="sp-back" onclick="showPage('photobooth')">← Kembali ke Photobooth</button>
+  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--muted);font-size:20px;">✕</span>
+  </div>
+  <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
+    <div style="position:relative;display:inline-block;width:80vw;max-width:900px;">
+      <video id="camera-feed" autoplay playsinline style="position:absolute;top:42%;left:39%;transform:translateX(-50%);width:50%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:none;z-index:1;"></video>
+      <canvas id="photo-canvas" style="display:none;"></canvas>
+      <img src="Photobooth-Camera.png" alt="Camera" style="width:100%;height:auto;position:relative;z-index:2;">
+      <button id="capture-btn" onclick="startCamera()" style="position:absolute;top:82%;left:50%;transform:translateX(-50%);max-width:100px;width:100%;cursor:pointer;background:none;border:none;z-index:3;">
+        <div style="background:var(--accent);width:60px;height:40px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:12px;">CAPTURE</div>
+      </button>
+      <div id="photo-preview"></div>
+      <div id="photo-strip"></div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="footer-logo-t">Orang Film UI</div><p class="footer-desc">Mengabadikan setiap cerita melalui lensa, cahaya, dan narasi visual yang bermakna.</p><div class="footer-socials"><a class="footer-social">ig</a><a class="footer-social">yt</a><a class="footer-social">lb</a></div></div>
+      <div><div class="footer-col-t">Learn More</div><a class="footer-link" onclick="showPage('home')">Tentang Kami</a><a class="footer-link" onclick="showFilm(0)">Our Works</a><a class="footer-link" onclick="scrollSec('sec-achievements')">Achievements</a><a class="footer-link" onclick="showPage('members')">Members</a></div>
+      <div><div class="footer-col-t">Film Funs</div><a class="footer-link" onclick="selectSub('filmfuns')">Film Funs</a><a class="footer-link" onclick="selectSub('filmquest')">FilmQuest</a><a class="footer-link" onclick="selectSub('starterkit')">StarterKit</a></div>
+      <div><div class="footer-col-t">Support</div><a class="footer-link">Kontak</a><a class="footer-link">Bantuan</a><a class="footer-link" href="https://promedui.com/form-pendaftaran-anggota/" target="_blank">@PolarLab</a></div>
+    </div>
+    <div class="footer-btm"><span class="footer-copy">© 2025 Orang Film UI — Universitas Indonesia</span><span class="footer-tag">Produksi Media</span></div>
+  </footer>
+</div>
+
 <!-- ════════════════════ PAGE: COLLECTION ════════════════════ -->
 <div id="page-collection" class="page">
   <button class="sp-back" onclick="showPage('claw')">← Kembali ke Claw Machine</button>
@@ -983,6 +1065,71 @@ function showPage(id){
 function selectSub(sub){
   showPage(sub);
   window.scrollTo({top:0,behavior:'smooth'});
+}
+let cameraStream=null;
+function startCamera(){
+  const video=document.getElementById('camera-feed');
+  if(cameraStream){
+    capturePhoto();
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({video:true})
+    .then(stream=>{
+      cameraStream=stream;
+      video.srcObject=stream;
+      video.style.display='block';
+      document.getElementById('capture-btn').innerHTML='<div style="background:var(--accent);width:60px;height:40px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:12px;">SNAP</div>';
+    })
+    .catch(err=>{
+      alert('Tidak dapat mengakses kamera: '+err);
+    });
+}
+let photoCount=0;
+let photoStrip=[];
+function capturePhoto(){
+  const video=document.getElementById('camera-feed');
+  const canvas=document.getElementById('photo-canvas');
+  const ctx=canvas.getContext('2d');
+  canvas.width=video.videoWidth;
+  canvas.height=video.videoHeight;
+  ctx.drawImage(video,0,0);
+  const dataUrl=canvas.toDataURL('image/png');
+  photoStrip.push(dataUrl);
+  photoCount++;
+  if(photoCount>=3){
+    showPhotoStrip();
+    stopCamera();
+  }else{
+    updatePhotoPreview();
+  }
+}
+function updatePhotoPreview(){
+  const preview=document.getElementById('photo-preview');
+  let previewHtml='<div style="margin-top:20px;display:flex;justify-content:center;gap:15px;">';
+  photoStrip.forEach((photo,i=>{
+    previewHtml+='<img src="'+photo+'" style="width:80px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--border);">';
+  }));
+  previewHtml+='<span style="width:80px;height:60px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px dashed var(--border);border-radius:6px;color:var(--muted);font-size:10px;">'+(photoCount+1)+'/3</span>';
+  previewHtml+='</div>';
+  preview.innerHTML=previewHtml;
+}
+function showPhotoStrip(){
+  const stripContainer=document.getElementById('photo-strip');
+  let stripHtml='<div style="margin-top:40px;text-align:center;padding:20px;background:var(--glass);border:1px solid var(--border);border-radius:16px;display:inline-block;"><h3 style="color:var(--accent);margin-bottom:20px;font-size:14px;letter-spacing:2px;">RESULT</h3><div style="display:flex;flex-direction:column;gap:12px;">';
+  photoStrip.forEach((photo,i=>{
+    stripHtml+='<img src="'+photo+'" style="max-width:220px;width:100%;height:auto;border-radius:8px;border:2px solid var(--accent);box-shadow:0 4px 15px rgba(0,0,0,0.3);">';
+  }));
+  stripHtml+='</div></div>';
+  stripContainer.innerHTML=stripHtml;
+  document.getElementById('photo-preview').innerHTML='';
+}
+function stopCamera(){
+  if(cameraStream){
+    cameraStream.getTracks().forEach(track=>track.stop());
+    cameraStream=null;
+  }
+  document.getElementById('camera-feed').style.display='none';
+  document.getElementById('capture-btn').innerHTML='<div style="background:var(--accent);width:60px;height:40px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:12px;">CAPTURE</div>';
 }
 let currentDispensedPoster='';
 let edList=[];
