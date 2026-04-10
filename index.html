@@ -745,9 +745,9 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
 
 <!-- ════════════════════ PAGE: VENDING MACHINE ════════════════════ -->
 <div id="page-vendingm" class="page">
-  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
-  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
-    <span style="color:var(--muted);font-size:20px;">✕</span>
+  <button class="sp-back" onclick="goBack()">← Kembali</button>
+  <div onclick="goBack()" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:24px;">‹</span>
   </div>
   <div onclick="showPage('claw')" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
     <span style="color:var(--accent);font-size:20px;">›</span>
@@ -819,9 +819,9 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
 
 <!-- ════════════════════ PAGE: CLAW MACHINE ════════════════════ -->
 <div id="page-claw" class="page">
-  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
-  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
-    <span style="color:var(--muted);font-size:20px;">✕</span>
+  <button class="sp-back" onclick="goBack()">← Kembali</button>
+  <div onclick="goBack()" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:24px;">‹</span>
   </div>
   <div onclick="showPage('ball')" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
     <span style="color:var(--accent);font-size:20px;">›</span>
@@ -864,9 +864,9 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
 
 <!-- ════════════════════ PAGE: BALL ════════════════════ -->
 <div id="page-ball" class="page">
-  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
-  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
-    <span style="color:var(--muted);font-size:20px;">✕</span>
+  <button class="sp-back" onclick="goBack()">← Kembali</button>
+  <div onclick="goBack()" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:24px;">‹</span>
   </div>
   <div onclick="showPage('photobooth')" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
     <span style="color:var(--accent);font-size:20px;">›</span>
@@ -875,10 +875,17 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
     <img src="title-ball.png" alt="Title Ball" style="max-width:600px;width:100%;height:auto;margin-bottom:30px;">
     <div style="position:relative;display:inline-block;max-width:500px;width:100%;">
       <img src="ball1.png" alt="Ball" style="max-width:100%;width:100%;height:auto;">
-      <img src="gumball-button.png" alt="Gumball Button" style="position:absolute;top:78%;left:50%;transform:translate(-50%,-50%);max-width:100px;width:100%;height:auto;cursor:pointer;">
+      <img src="gumball-button.png" alt="Gumball Button" onclick="showRandomQuote()" style="position:absolute;top:78%;left:50%;transform:translate(-50%,-50%);max-width:100px;width:100%;height:auto;cursor:pointer;">
     </div>
-    <img src="quote.png" alt="Quote" style="max-width:500px;width:100%;height:auto;margin-top:30px;">
-    <img src="guess.png" alt="Guess" style="max-width:500px;width:100%;height:auto;margin-top:30px;">
+    <div id="quote-display" style="max-width:500px;width:100%;margin:20px auto;display:none;">
+      <img src="quote.png" alt="Quote" style="max-width:100%;width:100%;height:auto;margin-bottom:15px;">
+      <p id="quote-text" style="font-size:16px;color:var(--accent);text-align:center;font-style:italic;padding:15px;background:var(--glass);border-radius:10px;border:1px solid var(--border);"></p>
+    </div>
+    <div id="guess-input" style="max-width:500px;width:100%;margin:20px auto;display:none;">
+      <input type="text" id="movie-answer" placeholder="Masukkan judul film..." style="width:80%;padding:12px 20px;border-radius:25px;border:1px solid var(--border);background:var(--glass);color:var(--text);font-size:14px;text-align:center;margin-bottom:15px;">
+      <button onclick="checkAnswer()" style="background:var(--accent);border:none;padding:12px 30px;border-radius:25px;color:#000;font-weight:700;cursor:pointer;">CEK</button>
+      <p id="result-message" style="margin-top:15px;font-size:14px;"></p>
+    </div>
   </div>
   <footer>
     <div class="footer-inner">
@@ -893,9 +900,9 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
 
 <!-- ════════════════════ PAGE: PHOTOBOOTH ════════════════════ -->
 <div id="page-photobooth" class="page">
-  <button class="sp-back" onclick="selectSub('filmquest')">← Kembali ke FilmQuest</button>
-  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
-    <span style="color:var(--muted);font-size:20px;">✕</span>
+  <button class="sp-back" onclick="goBack()">← Kembali</button>
+  <div onclick="goBack()" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:24px;">‹</span>
   </div>
   <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
     <img src="title-photo.png" alt="Title Photo" style="max-width:600px;width:100%;height:auto;margin-bottom:30px;">
@@ -917,9 +924,9 @@ footer{border-top:1px solid var(--border);padding:50px 48px 26px;background-imag
 
 <!-- ════════════════════ PAGE: CAMERA ════════════════════ -->
 <div id="page-camera" class="page">
-  <button class="sp-back" onclick="showPage('photobooth')">← Kembali ke Photobooth</button>
-  <div onclick="showPage('home')" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
-    <span style="color:var(--muted);font-size:20px;">✕</span>
+  <button class="sp-back" onclick="goBack()">← Kembali</button>
+  <div onclick="goBack()" style="position:fixed;left:20px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:var(--glass);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;">
+    <span style="color:var(--accent);font-size:24px;">‹</span>
   </div>
   <div style="padding-top:60px;max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px;padding-bottom:60px;text-align:center;">
     <div style="position:relative;display:inline-block;width:80vw;max-width:900px;">
@@ -1057,14 +1064,69 @@ document.addEventListener('click',e=>{if(!e.target.closest('#subDD'))document.ge
 
 /* ═══ PAGE SYSTEM ═══ */
 let curPage='home';
-function showPage(id){
+let pageHistory=[];
+function showPage(id,addToHistory=true){
+  if(addToHistory && curPage && curPage!==id){
+    pageHistory.push(curPage);
+  }
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const t=document.getElementById('page-'+id);
   if(t){t.classList.add('active');curPage=id;window.scrollTo({top:0,behavior:'smooth'})}
 }
+function goBack(){
+  if(pageHistory.length>0){
+    const prevPage=pageHistory.pop();
+    showPage(prevPage,false);
+  }else{
+    showPage('home');
+  }
+}
 function selectSub(sub){
   showPage(sub);
   window.scrollTo({top:0,behavior:'smooth'});
+}
+const quotesData=[
+  {quote:"May the Force be with you.",movie:"Star Wars"},
+  {quote:"I'm gonna make him an offer he can't refuse.",movie:"The Godfather"},
+  {quote:"Toto, I've a feeling we're not in Kansas anymore.",movie:"The Wizard of Oz"},
+  {quote:"Carpe diem. Seize the day, boys. Make your lives extraordinary.",movie:"Dead Poets Society"},
+  {quote:"Life is like a box of chocolates. You never know what you're gonna get.",movie:"Forrest Gump"},
+  {quote:"Why so serious?",movie:"The Dark Knight"},
+  {quote:"I'll be back.",movie:"The Terminator"},
+  {quote:"To infinity and beyond!",movie:"Toy Story"},
+  {quote:"There's no place like home.",movie:"The Wizard of Oz"},
+  {quote:"Keep your friends close, but your enemies closer.",movie:"The Godfather Part II"},
+  {quote:"My precious.",movie:"The Lord of the Rings: The Two Towers"},
+  {quote:"Just keep swimming.",movie:"Finding Nemo"},
+  {quote:"You're gonna need a bigger boat.",movie:"Jaws"},
+  {quote:"Bond. James Bond.",movie:"Dr. No"},
+  {quote:"Chewie, we're home.",movie:"Star Wars: The Force Awakens"},
+  {quote:"I am Iron Man.",movie:"Avengers: Endgame"},
+  {quote:"The first rule of Fight Club is: You do not talk about Fight Club.",movie:"Fight Club"},
+  {quote:"Here's looking at you, kid.",movie:"Casablanca"},
+  {quote:"Great power comes with great responsibility.",movie:"Spider-Man"},
+  {quote:"After all, tomorrow is another day!",movie:"Gone with the Wind"}
+];
+let currentQuote={};
+function showRandomQuote(){
+  currentQuote=quotesData[Math.floor(Math.random()*quotesData.length)];
+  document.getElementById('quote-text').textContent='"'+currentQuote.quote+'"';
+  document.getElementById('quote-display').style.display='block';
+  document.getElementById('guess-input').style.display='block';
+  document.getElementById('movie-answer').value='';
+  document.getElementById('result-message').textContent='';
+  document.getElementById('result-message').style.color='var(--muted)';
+}
+function checkAnswer(){
+  const userAnswer=document.getElementById('movie-answer').value.trim().toLowerCase();
+  const correctAnswer=currentQuote.movie.toLowerCase();
+  if(userAnswer===correctAnswer){
+    document.getElementById('result-message').textContent='BENAR! 🎉';
+    document.getElementById('result-message').style.color='var(--accent)';
+  }else{
+    document.getElementById('result-message').textContent='Salah, jawaban yang benar: '+currentQuote.movie;
+    document.getElementById('result-message').style.color='#e06060';
+  }
 }
 let cameraStream=null;
 function startCamera(){
@@ -1168,7 +1230,7 @@ function showCategory(type){
 }
 let clawResult='';
 let collectionList=[];
-const clawEntries=['ENTRI (6) 1.png','ENTRI (6) 2.png','ENTRI (6) 3.png','ENTRI (6) 4.png','ENTRI (6) 5.png','ENTRI (6) 6.png'];
+const clawEntries=['ENTRY (6) 1.png','ENTRY (6) 2.png','ENTRY (6) 3.png','ENTRY (6) 4.png','ENTRY (6) 5.png','ENTRY (6) 6.png'];
 function pullClaw(){
   clawResult=clawEntries[Math.floor(Math.random()*clawEntries.length)];
   const resultImg=document.getElementById('claw-entry-result');
